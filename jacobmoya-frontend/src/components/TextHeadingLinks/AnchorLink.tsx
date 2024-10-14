@@ -7,7 +7,9 @@ type Props = {
 
 const AnchorLink = (props: Props) => {
   return (
-    <a href={props.anchorLink} title={props.anchorTitle} className={props.anchorClass}>{props.anchorText}</a>
+    <a href={props.anchorLink} title={props.anchorTitle} className={props.anchorClass}>
+        {props.anchorText}
+    </a>
   )
 }
 

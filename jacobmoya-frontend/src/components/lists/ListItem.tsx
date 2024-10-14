@@ -3,12 +3,16 @@ import React from 'react'
 type Props = {
     itemtext:string,
     itemClass:string,
-    itemChildren: React.ReactNode
+    itemChildren: React.ReactNode | undefined
 }
 
 const ListItem = (props: Props) => {
   return (
-    <li className={props.itemClass}>{props.itemChildren}</li>
+    <li className={props.itemClass}>
+        { 
+            props.itemChildren ? props.itemChildren : props.itemtext
+        }
+    </li>
   )
 }
 

@@ -2,9 +2,9 @@ import Header from "./components/layout/Header"
 
 function App() {
   return (
-    <>
-    <Header/>
-    </>
+    <body className="h-screen bg-slate-950">
+      <Header/>
+    </body>
   )
 }
 
