@@ -10,7 +10,7 @@ const ListItem = (props: Props) => {
   return (
     <li className={props.itemClass}>
         { 
-            props.itemChildren ? props.itemChildren : props.itemtext
+          props.itemChildren ? props.itemChildren : props.itemtext
         }
     </li>
   )
