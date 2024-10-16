@@ -9,7 +9,8 @@ export default function Header({}: Props) {
         text:string,
         link:string,
         class:string,
-        title:string
+        title:string,
+        isActive:boolean
     }
 
     const navigation:NavItems[] = [
@@ -17,60 +18,65 @@ export default function Header({}: Props) {
         {
             text: 'Home',
             link: '#',
-            class: 'w-2/12 rounded-lg p-6',
-            title: 'Home'
+            class: 'w-full md:w-2/12 rounded-lg rounded-b-none border-2 border-b-0 border-orange-300 -mb-0.5 ',
+            title: 'Home',
+            isActive: true
         },
         {
             text: 'Websites',
             link: '#',
-            class: 'w-2/12 rounded-lg p-6',
-            title: 'Websites'
+            class: 'w-full md:w-2/12 rounded-lg rounded-b-none border-2 border-b-0 border-orange-300 -mb-0.5 ',
+            title: 'Websites',
+            isActive: false
         },
         {
             text: 'Projects',
             link: '#',
-            class: 'w-2/12 rounded-lg p-6',
-            title: 'Projects'
+            class: 'w-full md:w-2/12 rounded-lg rounded-b-none border-2 border-b-0 border-orange-300 -mb-0.5 ',
+            title: 'Projects',
+            isActive: false
         },
         {
             text: 'Code',
             link: '#',
-            class: 'w-2/12 rounded-lg p-6',
-            title: 'Code'
+            class: 'w-full md:w-2/12 rounded-lg rounded-b-none border-2 border-b-0 border-orange-300 -mb-0.5 ',
+            title: 'Code',
+            isActive: false
         },
         {
             text: 'Contact',
             link: '#',
-            class: 'w-2/12 rounded-lg p-6',
-            title: 'Contact'
+            class: 'w-full md:w-2/12 rounded-lg rounded-b-none border-2 border-b-0 border-orange-300 -mb-0.5 ',
+            title: 'Contact',
+            isActive: false
         },
 
 
     ]
 
     return (
-        <header className='flex items-center justify-center p-4 text-orange-300 border-b-4 border-orange-300'>
+        <header className='flex items-end justify-center text-orange-300 border-b-2 border-orange-300'>
             <div className="flex items-center justify-start w-3/12 relative ">
-                <h1 className=' text-black bg-orange-300 p-4 w-max font-bold'>
+                <h1 className=' text-black bg-orange-300 p-4 w-max font-bold '>
                     JM
                 </h1>
             </div>
 
             <nav className="nav-container text-center w-6/12 uppercase ">
-                <ul className='w-full flex items-center justify-between text-2xl '>
+                <ul className='w-full md:flex items-center md:flex-row flex-col hidden justify-between text-2xl '>
                     {
                         navigation.map(item=>{
                             return(
                                 <ListItem 
                                     itemtext={item.text} 
-                                    itemClass={item.class} 
+                                    itemClass={item.isActive ? `${item.class} bg-black` : item.class} 
                                     itemChildren={
                                         
                                     <AnchorLink 
                                         anchorLink={item.link} 
                                         anchorTitle={item.title} 
                                         anchorText={item.text} 
-                                        anchorClass={'hover:font-bold w-full h-full'}
+                                        anchorClass={'hover:font-bold'}
                                     />}
                                 />                            
                             )
@@ -81,7 +87,7 @@ export default function Header({}: Props) {
 
             <div className="flex items-center justify-end logo-container text-right w-3/12 relative">
                 <h1 className=' text-black bg-orange-300 p-4 w-max font-bold'>
-                    JM
+                    X
                 </h1>
             </div>
 
