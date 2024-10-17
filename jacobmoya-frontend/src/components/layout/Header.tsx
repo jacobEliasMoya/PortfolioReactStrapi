@@ -153,23 +153,23 @@ export default function Header({}: Props) {
     ]
 
     return (
-        <header className='flex items-end justify-center text-orange-300 z-10 relative pt-6'>
-            <div className="flex items-center justify-start w-1/12 relative px-2">
-                <h1 className=' text-black bg-orange-300 p-2 w-max font-bold '>
+        <header className=' flex items-end justify-center text-green-400 z-10 relative pt-6'>
+            <div className="hidden items-center justify-start w-1/12 relative px-2">
+                <h1 className=' text-black bg-green-400 p-2 w-max font-bold '>
                     JM
                 </h1>
             </div>
 
-            <nav className="nav-container text-center w-10/12 uppercase border-b-2 border-orange-300 ">
+            <nav className="nav-container text-center w-full uppercase border-b-2 border-green-400 ">
                 <ul className='w-full md:flex items-center md:flex-row flex-col hidden justify-evenly text-2xl '>
                     {
                         navigation.map(item=>{
                             return(
                                 <ListItem 
                                     itemtext={item.text} 
-                                    itemClass={ `p-1 cursor-pointer w-full md:w-2/12  border-2 border-b-0 border-orange-300 -mb-0.5 ${item.isActive ? 'bg-black':''}` } 
+                                    itemClass={ `p-1 cursor-pointer w-full md:w-2/12  border-2 border-b-0 border-green-400 -mb-0.5 ${item.isActive ? 'bg-black':''}` } 
                                     itemChildren={
-                                        <ul className={`absolute flex items-center justify-start gap-4 -bottom-full text-xl p-0 ${item.isActive ? '': 'hidden'}`} >
+                                        <ul className={`absolute flex items-center justify-start gap-4 -bottom-full text-xl mt-5 ${item.isActive ? '': 'hidden'}`} >
                                             {
                                                 item.children?.map(item=>{
                                                     return(
@@ -187,8 +187,8 @@ export default function Header({}: Props) {
                 </ul>
             </nav>
 
-            <div className="flex items-center justify-end logo-container text-right w-1/12 relative px-2">
-                <h1 className=' text-black bg-orange-300 p-2 px-4 w-max font-bold'>
+            <div className="hidden items-center justify-end logo-container text-right w-1/12 relative px-2">
+                <h1 className=' text-black bg-green-400 p-2 px-4 w-max font-bold'>
                     X
                 </h1>
             </div>
