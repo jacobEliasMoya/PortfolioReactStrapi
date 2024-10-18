@@ -1,21 +1,19 @@
 import React from 'react'
 
 type Props = {
-    itemtext:string,
-    itemClass:string,
-    itemChildren: React.ReactNode | undefined
+  itemtext:string,
+  itemClass:string,
+  itemChildren: React.ReactNode | undefined,
+  onclick: any,
+  itemKey: number
 }
 
 const ListItem = (props: Props) => {
   return (
-    <li className={props.itemClass}>
-        { 
-          props.itemtext
-        }
+    <li key={props.itemKey} onClick={props.onclick} className={props.itemClass}>
+        { props.itemtext }
 
-        { 
-          props.itemChildren
-        }
+        { props.itemChildren }
     </li>
   )
 }

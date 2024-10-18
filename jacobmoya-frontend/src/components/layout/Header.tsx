@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import ListItem from '../lists/ListItem';
 
 type Props = {}
@@ -5,14 +6,23 @@ type Props = {}
 export default function Header({}: Props) {
 
     interface NavItems {
+        id:number,
         isActive: boolean,
         path:string,
         text:string,
         children: NavItems[] | null
     }
 
-    const navigation:NavItems[] = [
+    const initializeSelection = (idKey:number) =>{
+        setNavState((prevState) => prevState.map((item)=> item.id === idKey ? {...item,isActive: item.isActive ? item.isActive : !item.isActive } : {...item,isActive:false}));
+    }
 
+    const initializeSubSelection = (idKey:number) =>{
+        setNavState((prevState) => prevState.map((item)=> item.children ? {...item, children: item.children.map(item=> item.id === idKey ? {...item, isActive: item.isActive ? item.isActive : !item.isActive} : {...item, isActive: false} )} : item ));
+    }
+
+  
+    const [navState, setNavState] = useState<NavItems[]>([
         {
             isActive: true,
             path: '#',
@@ -23,20 +33,24 @@ export default function Header({}: Props) {
                     isActive: true,
                     text: 'Information',
                     children: null,
+                    id: 6
                 },
                 {
                     path: '#',
                     isActive: false,
                     text: 'Journey',
                     children: null,
+                    id: 7
                 },
                 {
                     path: '#',
                     isActive: false,
                     text: 'Homelife',
                     children: null,
-                }
-            ]
+                    id: 8
+                },
+            ],
+            id: 1
         },
         
         {
@@ -46,23 +60,27 @@ export default function Header({}: Props) {
             children: [
                 {
                     path: '#',
-                    isActive: false,
+                    isActive: true,
                     text: 'Spotlight',
                     children: null,
+                    id: 9
                 },
                 {
                     path: '#',
                     isActive: false,
                     text: 'Web Design & Development',
                     children: null,
-                },              
+                    id: 10
+                },
                 {
                     path: '#',
                     isActive: false,
                     text: 'Passion Projects',
                     children: null,
+                    id: 11
                 },
-            ]
+            ],
+            id: 2
         },
 
         {
@@ -72,53 +90,62 @@ export default function Header({}: Props) {
             children: [
                 {
                     path: '#',
-                    isActive: false,
+                    isActive: true,
                     text: 'HTML',
                     children: null,
+                    id: 12
                 },
                 {
                     path: '#',
                     isActive: false,
                     text: 'CSS',
                     children: null,
+                    id: 13
                 },
                 {
                     path: '#',
                     isActive: false,
                     text: 'SCSS',
                     children: null,
+                    id: 14
                 },
                 {
                     path: '#',
                     isActive: false,
                     text: 'BootStrap',
                     children: null,
+                    id: 15
                 },
                 {
                     path: '#',
                     isActive: false,
                     text: 'WordPress',
                     children: null,
+                    id: 16
                 },
                 {
                     path: '#',
                     isActive: false,
                     text: 'Tailwind',
                     children: null,
+                    id: 17
                 },
                 {
                     path: '#',
                     isActive: false,
                     text: 'JavaScript',
                     children: null,
+                    id: 18
                 },
                 {
                     path: '#',
                     isActive: false,
                     text: 'TypeScript',
                     children: null,
+                    id: 19
                 }
-            ]
+            ],
+            id: 3
         },
 
         {
@@ -128,11 +155,13 @@ export default function Header({}: Props) {
             children: [
                 {
                     path: '#',
-                    isActive: false,
+                    isActive: true,
                     text: 'Who I Am',
                     children: null,
+                    id: 20
                 }
-            ]
+            ],
+            id: 4
         }
 
         ,
@@ -144,13 +173,20 @@ export default function Header({}: Props) {
             children: [
                 {
                     path: '#',
-                    isActive: false,
+                    isActive: true,
                     text: 'Who I Am',
                     children: null,
+                    id: 21
                 }
-            ]
+            ],
+            id: 5
         }
-    ]
+    ]);
+
+ 
+    useEffect(()=>{
+        console.log(navState)
+    },[navState])
 
     return (
         <header className=' flex items-end justify-center text-green-400 z-10 relative pt-6'>
@@ -161,19 +197,21 @@ export default function Header({}: Props) {
             </div>
 
             <nav className="nav-container text-center w-full uppercase border-b-2 border-green-400 ">
-                <ul className='w-full md:flex items-center md:flex-row flex-col hidden justify-evenly text-2xl '>
+                <ul className='w-full flex items-center md:flex-row flex-col  justify-evenly text-2xl '>
                     {
-                        navigation.map(item=>{
+                        navState.map(item=>{
                             return(
                                 <ListItem 
+                                    itemKey={item.id}
+                                    onclick={()=> initializeSelection(item.id)}  
                                     itemtext={item.text} 
                                     itemClass={ `p-1 cursor-pointer w-full md:w-2/12  border-2 border-b-0 border-green-400 -mb-0.5 ${item.isActive ? 'bg-black':''}` } 
                                     itemChildren={
-                                        <ul className={`absolute flex items-center justify-start gap-4 -bottom-full text-xl mt-5 ${item.isActive ? '': 'hidden'}`} >
+                                        <ul className={`absolute flex items-center justify-start gap-4 -bottom-2/3 text-xl  ${item.isActive ? '': 'hidden'}`} >
                                             {
                                                 item.children?.map(item=>{
                                                     return(
-                                                        <li className={`${item.isActive ? '' : 'opacity-30'}`}>{item.text} </li>
+                                                        <li onClick={()=>initializeSubSelection(item.id)} key={item.id} className={`${item.isActive ? '' : 'opacity-30'}`}>{item.text} </li>
                                                     )
                                                 })
                                             }
