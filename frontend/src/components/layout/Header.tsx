@@ -197,7 +197,7 @@ export default function Header({}: Props) {
             </div>
 
             <nav className="nav-container text-center w-full uppercase border-b-2 border-green-400 ">
-                <ul className='w-full flex items-center md:flex-row flex-col  justify-evenly text-2xl '>
+                <ul className=' w-full flex items-center md:flex-row flex-col  justify-evenly text-2xl  md:text-3xl '>
                     {
                         navState.map(item=>{
                             return(
@@ -207,7 +207,7 @@ export default function Header({}: Props) {
                                     itemtext={item.text} 
                                     itemClass={ `p-1 cursor-pointer w-full md:w-2/12  border-2 border-b-0 border-green-400 -mb-0.5 ${item.isActive ? 'bg-black':''}` } 
                                     itemChildren={
-                                        <ul className={`absolute flex items-center justify-start gap-4 -bottom-2/3 text-xl  ${item.isActive ? '': 'hidden'}`} >
+                                        <ul className={`md:absolute top-full flex items-center md:my-4 mb-2 flex-wrap justify-center md:justify-start gap-x-2 text-base md:text-2xl  ${item.isActive ? '': 'hidden'}`} >
                                             {
                                                 item.children?.map(item=>{
                                                     return(
