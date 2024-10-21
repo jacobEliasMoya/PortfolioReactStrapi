@@ -5,20 +5,21 @@ import Heading1 from "../TextHeadingLinks/Heading1"
 import Heading2 from "../TextHeadingLinks/Heading2"
 import Image from "../media/Image"
 import PipBoyImg from "../../assets/pipboy example red.webp"
+import Heading3 from "../TextHeadingLinks/Heading3"
 
 const HomeSection = () => {
   return (
-    <section className=" flex p-4 md:px-12 md:pt-16 mx-auto border-2  shadow-green-400 border-t-0 border-green-400  min-h-2/3  w-full ">
+    <section className=" flex  p-8 md:px-12 md:py-16 mx-auto border-2 gap-10 shadow-green-400 border-t-0 border-green-400  min-h-2/3  w-full ">
 
-        <div className="w-fll md:w-7/12">
+        <div className="w-full md:w-7/12 p-4 border-2 border-green-400">
 
-            <Heading2 
+            <Heading1 
                 headingText="Hello User ... I'm Jake "
             />
-            <Heading1 
+            <Heading2 
                 headingText="I like Jokes/Tech"
             />
-            <Heading2 
+            <Heading3 
                 headingText="Joke number one... 
                 lets use high-level technology to reacreate a vintage Fallout style UI ... "
             />
@@ -29,7 +30,7 @@ const HomeSection = () => {
 
         </div>
 
-        <div className="w-fll md:w-5/12">
+        <div className="w-full md:w-5/12 p-4 border-2 border-green-400">
             <Image 
                 imageSrc={PipBoyImg} 
                 imageTitle={""} 
