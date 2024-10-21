@@ -205,13 +205,13 @@ export default function Header({}: Props) {
                                     itemKey={item.id}
                                     onclick={()=> initializeSelection(item.id)}  
                                     itemtext={item.text} 
-                                    itemClass={ `p-1 cursor-pointer w-full md:w-2/12  border-2 border-b-0 border-green-400 -mb-0.5 ${item.isActive ? 'bg-black':''}` } 
+                                    itemClass={ `p-1 cursor-pointer w-full md:w-2/12  border-2 border-b-0 border-green-400   ${item.isActive ? '-mb-0.5 py-2 bg-black':'-mb-2 hover:-mb-0.5 hover:py-2 top-3 hover:bg-green-400 hover:text-black'}` } 
                                     itemChildren={
-                                        <ul className={`md:absolute top-full flex items-center md:my-4 mb-2 flex-wrap justify-center md:justify-start gap-x-2 text-base md:text-2xl  ${item.isActive ? '': 'hidden'}`} >
+                                        <ul className={`md:absolute top-full flex items-center mt-4 mb-2 flex-wrap justify-center md:justify-start gap-x-2 text-base md:text-2xl  ${item.isActive ? '': 'hidden'}`} >
                                             {
                                                 item.children?.map(item=>{
                                                     return(
-                                                        <li onClick={()=>initializeSubSelection(item.id)} key={item.id} className={`${item.isActive ? '' : 'opacity-30'}`}>{item.text} </li>
+                                                        <li onClick={()=>initializeSubSelection(item.id)} key={item.id} className={`px-2 ${item.isActive ? 'bg-green-400 text-black ' : 'hover:bg-green-400 hover:text-black  opacity-30'}`}>{item.text} </li>
                                                     )
                                                 })
                                             }

@@ -6,7 +6,7 @@ type Props = {
 
 const Heading2 = (props: Props) => {
   return (
-    <h2 className="md:text-5xl text-xl drop-shadow-sm shadow-green-400">{props.headingText}</h2>
+    <h2 className="md:text-5xl text-xl hover:bg-green-400 hover:text-black">{props.headingText}</h2>
   )
 }
 
