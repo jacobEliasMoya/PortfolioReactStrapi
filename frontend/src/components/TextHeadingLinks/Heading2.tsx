@@ -6,7 +6,7 @@ type Props = {
 
 const Heading2 = (props: Props) => {
   return (
-    <h2 className="md:text-7xl text-xl ">{props.headingText}</h2>
+    <h2 className="md:text-6xl mb-3 text-xl ">{props.headingText}</h2>
   )
 }
 
