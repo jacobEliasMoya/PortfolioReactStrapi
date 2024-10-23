@@ -189,7 +189,7 @@ export default function Header({}: Props) {
     },[navState])
 
     return (
-        <header className=' flex items-end justify-center text-green-400 z-10 relative pt-6'>
+        <header className=' flex items-end justify-center text-green-400 z-10 relative pt-4'>
             <div className="hidden items-center justify-start w-1/12 relative px-2">
                 <h1 className=' text-black bg-green-400 p-2 w-max font-bold '>
                     JM
@@ -197,7 +197,7 @@ export default function Header({}: Props) {
             </div>
 
             <nav className="nav-container text-center w-full uppercase border-b-2 border-green-400 ">
-                <ul className=' w-full flex items-center md:flex-row flex-col  justify-evenly text-2xl  md:text-3xl '>
+                <ul className=' w-full flex items-center md:flex-row flex-col  justify-evenly text-xl  md:text-2xl '>
                     {
                         navState.map(item=>{
                             return(
@@ -205,13 +205,13 @@ export default function Header({}: Props) {
                                     itemKey={item.id}
                                     onclick={()=> initializeSelection(item.id)}  
                                     itemtext={item.text} 
-                                    itemClass={ `p-1 cursor-pointer w-full md:w-2/12  border-2 border-b-0 border-green-400   ${item.isActive ? '-mb-0.5 py-2 bg-[repeating-linear-gradient(#000,#000_4px,_#22222200_4px,#22222200_7px)]  ':'-mb-2 hover:-mb-0.5 hover:py-2 top-3 hover:bg-green-400 hover:   hover:text-black'}` } 
+                                    itemClass={ `p-1 cursor-pointer w-full md:w-2/12  border-2 border-b-0 border-green-400   ${item.isActive ? '-mb-0.5 py-2 bg-green-400 text-black ':'-mb-2 hover:-mb-0.5 hover:py-2 top-3 hover:bg-green-400  hover:text-black'}` } 
                                     itemChildren={
-                                        <ul className={`md:absolute top-full flex items-center mt-4 mb-2 flex-wrap justify-center md:justify-start gap-x-2 text-base md:text-2xl  ${item.isActive ? '': 'hidden'}`} >
+                                        <ul className={`md:absolute left-10 top-full flex items-center mt-4 mb-2 flex-wrap justify-center md:justify-start gap-x-2 text-base md:text-2xl  ${item.isActive ? '': 'hidden'}`} >
                                             {
                                                 item.children?.map(item=>{
                                                     return(
-                                                        <li onClick={()=>initializeSubSelection(item.id)} key={item.id} className={`px-2 bg-opacity-85 hover:bg-opacity-10 ${item.isActive ? 'bg-green-400 text-black ' : 'hover:bg-green-400 hover:text-black  opacity-30'}`}>{item.text} </li>
+                                                        <li onClick={()=>initializeSubSelection(item.id)} key={item.id} className={`px-2 ${item.isActive ? 'bg-green-400 text-black cursor-auto' : 'hover:bg-green-400 hover:text-black  opacity-30 text-green-400 '}`}>{item.text} </li>
                                                     )
                                                 })
                                             }
