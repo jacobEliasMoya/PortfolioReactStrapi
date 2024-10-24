@@ -4,7 +4,7 @@ import RegButton from "../buttons/RegButton"
 import Heading1 from "../TextHeadingLinks/Heading1"
 import Heading2 from "../TextHeadingLinks/Heading2"
 // import Image from "../media/Image"
-// import ProfImg from "../../assets/isame.jpg"
+// import ProfImg from "../..   /assets/isame.jpg"
 import Heading3 from "../TextHeadingLinks/Heading3"
 import { DiGithubBadge } from "react-icons/di";
 
